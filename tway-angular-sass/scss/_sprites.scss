@@ -1,0 +1,169 @@
+$icons-spacing: 10px;
+//$icons-position: 100%;
+@import "icons/*.png";
+//@include all-icons-sprites;
+
+.business-process-id-1 .process-block:before {
+  @include icons-sprite(bp-project);
+}
+
+.business-process-id-29 .process-block:before {
+  @include icons-sprite(bp-sales);
+}
+
+.business-process-id-63 .process-block:before {
+  @include icons-sprite(bp-offering);
+}
+
+.business-process-id-177 .process-block:before {
+  @include icons-sprite(bp-cs);
+}
+
+.business-process-id-195 .process-block:before {
+  @include icons-sprite(bp-support);
+}
+
+.description-pane .info-pane-title:before {
+  @include icons-sprite(pane-description);
+}
+
+.tasks-pane .info-pane-title:before {
+  @include icons-sprite(pane-tasks);
+}
+
+.raci-pane .info-pane-title:before {
+  @include icons-sprite(pane-raci);
+}
+
+.deliverables-pane .info-pane-title:before {
+  @include icons-sprite(pane-deliverables);
+}
+
+.main-breadcrumb .breadcrumb .home {
+  @include icons-sprite(back-arrow, false, 0, ($h3-font-size - icons-sprite-height(back-arrow)) / 2);
+}
+
+#info-panel .breadcrumb .home {
+  @include icons-sprite(back-arrow, false, 0, ($base-font-size - icons-sprite-height(back-arrow)) / 2);
+}
+
+//.breadcrumb .home         { @include icons-sprite(back-arrow, true); }
+
+.inline-print:before {
+  @include icons-sprite(inline-print);
+}
+
+.process-inputs .title:before {
+  @include icons-sprite(inline-input);
+}
+
+.process-deliverables .title:before {
+  @include icons-sprite(inline-deliverable);
+}
+
+.inline-role:before {
+  @include icons-sprite(inline-role);
+}
+
+.inline-process:before {
+  @include icons-sprite(inline-process);
+}
+
+.inline-template:before {
+  @include icons-sprite(inline-template);
+}
+
+// pseudo-classes for icons
+%pseudo-icon-large {
+  @extend %pseudo-icon;
+  //  padding-left: $base-unit * 10;
+  &:before {
+    margin-left: -1 * $large-icon-offset;
+  }
+
+}
+
+%pseudo-icon-inline {
+  @extend %pseudo-icon;
+  padding-left: $base-unit * 4;
+}
+
+%pseudo-icon {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+}
+
+.business-process {
+  .process-block {
+    @extend %pseudo-icon-large;
+    &:before {
+      left: auto;
+      right: 0;
+      bottom: 0;
+      margin: $padding-large;
+    }
+  }
+}
+
+.description-pane, .tasks-pane, .raci-pane, .deliverables-pane {
+  .info-pane-title {
+    @extend %pseudo-icon-large;
+  }
+}
+
+.inline-role, .inline-process, .inline-template, .inline-print {
+  @extend %pseudo-icon-inline;
+}
+
+.deliverables .title {
+  @extend %pseudo-icon;
+  &:before {
+    margin-left: -0.6 * $large-icon-offset;
+    top: 0;
+  }
+}
+
+// Link icons
+%link-icon-large {
+  display: block;
+  width: 0;
+  overflow: hidden;
+  //default padding, if extending selector doesn't define it
+  padding-left: 8 * $base-unit;
+}
+
+.breadcrumb {
+  li.home-link {
+    width: 4 * $base-unit;
+    overflow: hidden;
+  }
+  .home {
+    padding-left: 4 * $base-unit;
+  }
+}
+
+#info-panel .breadcrumb {
+  li.home-link {
+    width: 3 * $base-unit;
+  }
+}
+
+// Flag icons
+$flags-sprite-dimensions: true;
+@import "flags/*.png";
+@include all-flags-sprites;
+
+.flag {
+  text-indent: 9999px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 3px;
+  vertical-align: middle;
+  &.flags-link {
+    text-indent: 0;
+  }
+}

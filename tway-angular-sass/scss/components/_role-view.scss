@@ -1,0 +1,36 @@
+.role-view {
+   padding: 0 2 * $indent-amount;
+   table {
+     td {
+       padding: 0 $indent-amount;
+       vertical-align: top;
+       &:first-child {
+         padding-left: 0;
+         width: 20%;
+         color: $tiui-cyan;
+         @include adjust-font-size-to($h5-font-size);
+       }
+       &:last-child {
+         padding-right: 0;
+       }
+       &.roles-definition {
+         #{elements-of-type(block)} {
+           margin-top: 0;
+         }
+       }
+     }
+   }
+ }
+
+.modal {
+  .role-view {
+    padding: 0;
+    table {
+      td {
+        &:first-child {
+          width: auto;
+        }
+      }
+    }
+  }
+}

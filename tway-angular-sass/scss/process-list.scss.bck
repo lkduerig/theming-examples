@@ -1,0 +1,47 @@
+@import "variables";
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "mixins";
+
+// Colors
+//----------------
+@include set-tiui-colors("color", ".sub-process-title");
+@include set-tiui-colors("stroke");
+@include lighten-tiui-colors("fill", "circle, rect");
+
+
+@include set-tiui-colors("fill", ".activity:hover, .gate:hover, .activity.selected, .gate.selected");
+@include lighten-tiui-colors("fill", ".sub-process:hover, .sub-process.selected", 20);
+//----------------
+
+.process-list {
+
+  ul {
+    padding:0;
+    list-style-type: none;
+    list-style-image: none;
+
+    &.process-column {
+      float: left;
+      width: 32%;
+      padding: 0;
+      &:nth-of-type(4n+0) {
+        clear: left;
+      }
+      li {
+        cursor: pointer;
+
+        .dimmed {
+          color: $gray;
+        }
+        .highlighted {
+          font-weight: bolder;
+        }
+
+        ul {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

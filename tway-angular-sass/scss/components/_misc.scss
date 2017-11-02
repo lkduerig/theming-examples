@@ -1,0 +1,17 @@
+.err {
+  color: $error;
+}
+
+.disabled {
+  color: $gray;
+}
+
+.img-left {
+  float: left;
+  margin-right: $indent-amount * 2;
+}
+
+.img-right {
+  float: right;
+  margin-left: $indent-amount * 2;
+}

@@ -1,0 +1,17 @@
+
+.row, .row-fluid {
+  @include leader();
+  @include trailer();
+  [class*="span"].col1 {
+    clear: left;
+    margin-left: 0;
+  }
+}
+
+.no-bottom-margin {
+  margin-bottom: 0;
+}
+
+.no-top-margin {
+  margin-top: 0;
+}

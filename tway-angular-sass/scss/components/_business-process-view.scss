@@ -1,0 +1,76 @@
+// Business process view
+.business-process-view {
+  background-color: $white;
+  // add some bottom margin so feedback button doesn't sit on top of the process blocks
+  @include trailer();
+}
+
+.process-block {
+  color: $white;
+  overflow: hidden;
+  padding: $padding-large;
+  a {
+    text-decoration: underline;
+    color: $white;
+  }
+
+  .business-process-name {
+    font-weight: bold;
+    float: left;
+    width: 170px;
+    text-transform: uppercase;
+  }
+
+  .unpublished {
+    background-color: $gray-light;
+    color: $white;
+    padding: $padding-mini;
+  }
+}
+
+.process-block.unpublished {
+  border: 1px solid $gray-light;
+  color: $gray-light;
+}
+
+@include adjust-tiui-colors("background-color", ".dimmed .process-block.published", 30);
+.business-process {
+
+  float: left;
+  //  width: 37%;
+  width: 50%;
+  margin: 0;
+  padding: $base-unit;
+  @include box-sizing(border-box);
+  &:last-child {
+    width: 100%;
+  }
+
+  .process-block {
+    @include trailer(0.05);
+    //    border: 3px solid;
+    height: 100px;
+  }
+
+  .business-process-name {
+    float: left;
+  }
+
+  .core-processes {
+    float: left;
+    max-width: 80%;
+  }
+
+  .core-process,
+  span.unpublished {
+    display: block;
+    margin-left: $indent-amount*3;
+    display: list-item;
+  }
+
+  .highlighted .process-block {
+    @include box-shadow($box-shadow);
+  }
+}
+
+//@include adjust-tiui-colors("border-color", ".highlighted .process-block", 70, "", $black);

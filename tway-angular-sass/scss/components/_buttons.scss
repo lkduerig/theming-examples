@@ -1,0 +1,86 @@
+.inline-buttons {
+  @include horizontal-list(false);
+  @include trailer();
+}
+
+.button {
+  cursor: pointer;
+  padding: $padding-small;
+  @include background-hover($gray-lighter, $gray);
+  @include link-hover($gray, $white);
+}
+
+.small-button {
+  cursor: pointer;
+  @include adjust-font-size-to($font-size-small);
+  padding: $button-padding;
+}
+
+%control-button {
+  @include border-radius($border-radius-large);
+  border: 1px solid $tiui-cyan;
+  display: inline-block;
+  @include adjust-font-size-to($font-size-tiny, $font-size-tiny/$base-font-size);
+  position: relative;
+  z-index: 100;
+}
+
+%control-button-text {
+  cursor: pointer;
+  color: $gray-dark;
+  display: inline-block;
+  font-weight: bold;
+  padding: $small-button-padding;
+  vertical-align: top;
+  @include background-hover($white, mix($tiui-cyan, $white, 26));
+  &.active {
+    //    background-color: mix($tiui-cyan, $white, 26);
+    background-color: $tiui-cyan;
+    color: $white;
+    cursor: default;
+  }
+}
+
+a.control-button {
+  @extend %control-button;
+  @extend %control-button-text;
+}
+
+.control-button-group {
+  .inline-buttons {
+    @extend %control-button;
+  }
+  a {
+    @extend %control-button-text;
+  }
+}
+
+.feedback-button {
+  font-weight: bold;
+  margin-left: rhythm(-1.5, $font-size-small);
+  bottom: 0;
+  right: $indent-amount;
+  position: fixed;
+  background-color: $tiui-orange;
+  z-index: 1010;
+}
+
+a.feedback-button-control {
+  @include link-hover($white, $white);
+  @include adjust-font-size-to($font-size-small);
+  padding: $button-padding;
+  display: inline-block;
+}
+
+.chart-controls {
+  position: absolute;
+}
+
+.type-switcher {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sort-buttons {
+  float: right;
+}

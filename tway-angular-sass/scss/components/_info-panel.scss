@@ -1,0 +1,150 @@
+// Information panel
+// -----------------
+#info-panel {
+  background-color: $white;
+  border-top: 1px solid $column-border-color;
+  .container-fluid {
+    background-color: $white;
+  }
+
+  .row-fluid {
+    position: relative;
+    overflow: hidden;
+
+    .column {
+      @include pseudo-element();
+      position: static;
+      &:before {
+        border-left: 1px solid $column-border-color;
+        left: auto;
+      }
+
+      &:first-child:before {
+        border-left: 0 none;
+      }
+    }
+  }
+}
+
+.info-panel-pane {
+  clear: both;
+  padding-left: $large-icon-offset;
+  margin-left: $large-icon-offset / 2;
+  position: relative;
+  @include leader();
+  @include trailer();
+
+  ul.links {
+    position: relative;
+  }
+}
+
+.deliverables-title {
+  color: $gray;
+  @include adjust-font-size-to($font-size-small);
+}
+
+// Process elements
+// -----------------
+.deliverable {
+  @include trailer();
+
+  ul.tools {
+    @include adjust-font-size-to($font-size-small);
+
+    li {
+      @include leader(0.25);
+    }
+  }
+}
+
+.raci-role {
+  @include trailer();
+  .role-name {
+    @include adjust-font-size-to($font-size-small);
+  }
+}
+
+.activity-view {
+  .raci-role {
+    width: 50%;
+    float: left;
+  }
+}
+
+.show-tasks-button {
+  @include leader(2);
+  @include trailer(2);
+  a {
+    @include background-hover($tiui-green, $tiui-green-alt);
+    color: $white;
+    text-transform: uppercase;
+  }
+}
+
+.task-count {
+  text-align: center;
+  @include leader();
+  @include trailer();
+}
+
+ul.activity-task-list {
+  padding-left: 0;
+  li {
+    list-style: none outside none;
+    a.selected {
+      background-color: $tiui-cyan;
+      color: $white;
+    }
+
+    a {
+      @include pseudo-element();
+      display: block;
+      padding: $padding-small;
+      padding-left: 4 * $indent-amount;
+      @include link-hover($base-font-color, $white);
+      @include background-hover(transparent, $tiui-cyan);
+      &:before {
+        width: $base-font-size;
+        height: $base-font-size;
+        border: 1px solid $element-border-color;
+        top: auto;
+        margin-left: $indent-amount;
+      }
+
+      &:hover {
+        &:before {
+          border-color: $white;
+        }
+      }
+    }
+  }
+}
+
+// Tasks "popup" panel
+.panelmode-tasks {
+  background-color: $gray-lighter;
+  border: 1px solid $column-border-color;
+  border-left: 0 none;
+  padding-right: rhythm(6, $font-size-absurd);
+
+  .panel-close {
+    a {
+      @include pseudo-element();
+      @include adjust-font-size-to($font-size-absurd);
+      height: rhythm(3, $font-size-absurd);
+      width: rhythm(3, $font-size-absurd);
+      position: absolute;
+      text-align: center;
+      right: 0;
+      top: 0;
+      z-index: 5;
+
+      &:before {
+        content: '×';
+        z-index: 0;
+      }
+      @include link-hover($tiui-cyan, $gray);
+    }
+  }
+}

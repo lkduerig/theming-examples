@@ -1,0 +1,22 @@
+
+ul.tools {
+  li.tool {
+    padding-left: 0;
+    color: $gray;
+    a {
+      color: $gray;
+    }
+    span.variant a {
+      color: $tiui-cyan;
+    }
+  }
+}
+
+.info-panel-pane {
+  ul.tools {
+    @include horizontal-list(3*$base-unit);
+    li {
+      padding-left: 0;
+    }
+  }
+}

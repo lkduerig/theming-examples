@@ -1,0 +1,75 @@
+#core-process-panel {
+  .columns {
+    padding: $padding-small;
+
+    h5 {
+      @include adjust-font-size-to($base-font-size);
+    }
+
+    ul {
+      @include no-bullets;
+      @include adjust-font-size-to($font-size-small);
+      padding: 0;
+    }
+
+    ul, h5, .deliverable {
+      margin-top: 0;
+      @include trailer(0.5);
+    }
+
+    ul.tools {
+      margin: 0;
+    }
+  }
+
+  li.activity span {
+    cursor: pointer;
+  }
+
+  li.dimmed {
+    color: $gray;
+  }
+}
+
+#core-process-panel {
+  .columns {
+    &.process-deliverables {
+      .sort-name {
+        @include respond-to(narrow) {
+          @include column-count(6);
+          @include column-gap($indent-amount);
+          .column {
+            min-width: 100%;
+            @include column-break-inside(avoid);
+          }
+
+          [class*="span"] {
+            margin-left: 0;
+          }
+        }
+
+        @include respond-to(normal) {
+          @include column-gap($indent-amount * 2);
+        }
+      }
+    }
+  }
+}
+
+.lte-9 {
+  #core-process-panel {
+    .columns.process-deliverables {
+      @include respond-to(narrow) {
+        .sort-name {
+          // Shouldn't be necessary, IE9 doesn't support columns anyway, but who knows.
+          @include column-count(1);
+          @include column-gap(0);
+
+          .column {
+            min-width: 0;
+          }
+        }
+      }
+    }
+  }
+}

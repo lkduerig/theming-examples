@@ -1,0 +1,68 @@
+
+.tiui-jqueryui-tabs {
+  @include trailer();
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav {
+  @include horizontal-list(false);
+  @include trailer();
+  @include trailing-border($thick-border-width, 0);
+  position: relative;
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li a {
+  display: block;
+  padding: $base-unit $indent-amount;
+  color: $gray-medium-dark;
+  text-decoration: none;
+  font-weight: bold;
+  @include adjust-font-size-to($font-size-small);
+}
+
+// Default gray color
+.tiui-jqueryui-tabs .ui-tabs-nav {
+  border-color: $gray-medium-light;
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li a {
+  color: $gray-medium-light;
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li.ui-state-active {
+  background: $gray-medium-light;
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li.ui-state-active a {
+  color: $white;
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li.ui-state-active:hover {
+  background: $gray-medium-light;
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li:hover {
+  background: $gray-lightest;
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li:hover a {
+  text-decoration: underline
+}
+
+.tiui-jqueryui-tabs .ui-tabs-nav li.ui-state-active a {
+  color: $gray-dark;
+  text-decoration: none;
+  cursor: default
+}
+
+@include set-tiui-colors(border-color, '.tiui-jqueryui-tabs', '.ui-tabs-nav');
+@include set-tiui-colors(color, '.tiui-jqueryui-tabs', '.ui-tabs-nav li a');
+@include set-tiui-colors(background, '.tiui-jqueryui-tabs', '.ui-tabs-nav li.ui-state-active');
+@include set-tiui-colors(color, '.tiui-jqueryui-tabs', '.ui-tabs-nav li.ui-state-active a', $white);
+
+.tiui-jqueryui-tabs .ui-tabs-nav li.ui-state-disabled {
+  @include disabled-button;
+}
+
+.tiui-jqueryui-tabs .adhoc-exhibit {
+  margin: 0
+}

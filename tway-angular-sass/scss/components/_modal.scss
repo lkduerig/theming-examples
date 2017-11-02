@@ -1,0 +1,60 @@
+
+.modal {
+  display: block;
+  .modal-dialog {
+    @include respond-to(normal) {
+      width: 600px;
+    }
+  }
+
+  .print-text {
+    float: right;
+    width: 0;
+    overflow: hidden;
+    @include opacity(0.2);
+    &:hover {
+      @include opacity(0.5);
+    }
+  }
+
+  input, select, textarea {
+    width: 150px;
+  }
+
+  .container-fluid {
+    padding: 0;
+  }
+}
+
+
+// Welcome message modal window
+@include set-tiui-colors(background-color, 'body', '.welcome .modal-body');
+
+.modal {
+  .welcome {
+    .modal-body {
+      margin: $base-unit;
+    }
+
+    .tieto_logo {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: $base-unit;
+    }
+
+    .welcom_txt {
+      @include adjust-font-size-to($h4-font-size);
+      color: $white;
+
+      span {
+        @include adjust-font-size-to($h3-font-size, 1, $h4-font-size);
+      }
+
+      a {
+        @include link-hover($white, $tiui-blue);
+        text-decoration: underline;
+      }
+    }
+  }
+}

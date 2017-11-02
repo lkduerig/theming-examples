@@ -1,0 +1,32 @@
+.messages, .no-data {
+  @include trailer();
+  padding: $padding-large;
+}
+
+.messages {
+  background-color: $message-bg;
+  ul.inline {
+    span.bullet {
+      border: 1px solid $message-accent;
+      color: $message-accent;
+      display: inline-block;
+      margin: $padding-mini;
+      text-align: center;
+
+      width: rhythm(0.9);
+      height: rhythm(0.9);
+      @include border-radius($border-radius-large);
+    }
+  }
+}
+
+.no-data {
+  @include leader();
+  font-style: italic;
+  background-color: $gray-lighter;
+}
+
+.messages.no-data {
+  background-color: $message-bg;
+  float: none;
+}

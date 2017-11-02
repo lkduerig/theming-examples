@@ -1,0 +1,147 @@
+//
+// Variables
+// --------------------------------------------------
+
+// Global values
+// --------------------------------------------------
+
+// Breakpoints
+// -------------------------
+$break1: 760px;
+$break2: 1024px;
+$break3: 1220px;
+
+// Grays
+// -------------------------
+$black: #000 !default;
+//
+$gray-darker: #222 !default;
+$gray-dark: #333 !default;
+$gray-medium-dark: #737373 !default;
+$gray: #a0a0a0 !default;
+$gray-medium-light: #cccccc !default;
+$gray-light: #dfdede !default;
+//$gray-light:            #ebebeb !default;
+$gray-lighter: #f9f9f9 !default;
+//
+$gray-lightest: #fafafa;
+$white: #fff !default;
+//
+$light-beige: #faf3c3;
+/*for status message*/
+$dark-beige: #c7b855;
+// for status messages
+$error: #a90000 !default;
+// For error messages
+
+// These colors are used in tiui-components.css but not using variables, yet
+// #ccc
+// #d2d2d2 // #ebf5fc
+// #efefef
+// 8533ad
+
+// Tieto UI colors
+// -------------------------
+$tiui-magenta: #e62859 !default;
+$tiui-orange: #ff9933 !default;
+$tiui-green: #99cc33 !default;
+$tiui-blue: #0080c6 !default;
+$tiui-cyan: #76Ceea !default;
+$tiui-colors: 'magenta', 'orange', 'green', 'blue', 'cyan';
+
+$tiui-magenta-alt: #a90000 !default;
+$tiui-orange-alt: #e13300 !default;
+$tiui-green-alt: #338200 !default;
+$tiui-blue-alt: #00409a !default;
+
+// Element colors
+// -------------------------
+$column-border-color: $gray-light;
+$element-border-color: $gray-light;
+
+// Business Process IDs, see -tiui-get-color for color mapping
+// -------------------------
+$business-process-ids: 1, 29, 63, 177, 195;
+
+// Base unit
+// -------------------------
+$base-unit: 5px;
+
+// Typography
+// -------------------------
+$sans-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !default;
+$serif-font-family: Georgia, "Times New Roman", Times, serif !default;
+$mono-font-family: Monaco, Menlo, Consolas, "Courier New", monospace !default;
+
+/* I did yoink these fonts from tieto.com project, do we have permission to use them here? 8/
+/* This CSS resource incorporates links to font software which is the valuable copyrighted property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install, redistribute, convert, modify or reverse engineer this font software. Please contact Monotype Imaging with any questions regarding Web Fonts:  http://webfonts.fonts.com */
+/* This stuff's being cranky */
+//@import url("http://fast.fonts.com/t/1.css?apiType=css&projectid=0388d288-a08b-47f3-b4a8-dcec548d1bc3");
+//@font-face {
+//  font-family: "HelveticaNeueW02-45Ligh";
+//  src: url("../css/fonts/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix");
+//  src: url("../css/fonts/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix") format("eot"), url("../css/fonts/9a2e4855-380f-477f-950e-d98e8db54eac.woff") format("woff"), url("../css/fonts/fa82d0ee-4fbd-4cc9-bf9f-226ad1fcbae2.ttf") format("truetype"), url("../css/fonts/48d599a6-92b5-4d43-a4ac-8959f6971853.svg#48d599a6-92b5-4d43-a4ac-8959f6971853") format("svg");
+//  font-weight: 300;
+//  font-style: normal;
+//}
+//@font-face {
+//  font-family: "HelveticaNeueW02-95Blac";
+//  src: url("../css/fonts/c8ec8ade-129c-47df-86b4-f9f1cd69ac15.eot?#iefix");
+//  src: url("../css/fonts/c8ec8ade-129c-47df-86b4-f9f1cd69ac15.eot?#iefix") format("eot"), url("../css/fonts/6d5b06b3-f8db-4de6-aa46-2a6de9569b51.woff") format("woff"), url("../css/fonts/86438896-04f9-4558-a21a-e7a6d6061591.ttf") format("truetype"), url("../css/fonts/c486d95f-f220-435d-8a83-5d9497f04c49.svg#c486d95f-f220-435d-8a83-5d9497f04c49") format("svg");
+//  font-style: normal;
+//}
+//
+//$helvetica-neue: HelveticaNeueW02-45Ligh, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+//$helvetica-neue-black: HelveticaNeueW02-95Blac, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$helvetica-neue: $sans-font-family;
+
+$base-font-size: 13px !default;
+$base-font-family: $sans-font-family !default;
+$base-line-height: 21px !default;
+$base-font-color: $gray-dark;
+
+// Component sizing
+// -------------------------
+$h1-font-size: 3.462  * $base-font-size; // 45px
+$h2-font-size: 2.308  * $base-font-size; // 30px
+$h3-font-size: 1.538  * $base-font-size; // 20px
+//$h3-font-size: 1.385  * $base-font-size; // 18px
+$h4-font-size: 1.154  * $base-font-size; // 15px
+$h5-font-size: 1.077  * $base-font-size; // 14px
+$h6-font-size: 0.923  * $base-font-size; // 12px
+
+$font-size-absurd: $h1-font-size;
+$font-size-small: 0.923 * $base-font-size;
+$font-size-tiny: 0.75 * $base-font-size;
+
+$indent-amount: $base-unit * 2;
+
+$padding-large: $base-line-height ($base-unit * 5) !default;
+$padding-small: ($base-line-height / 2) ($base-unit * 3) !default;
+$padding-mini: 0 $base-unit !default;
+$button-padding: ($base-line-height / 4) (8 * $base-unit) !default;
+$small-button-padding: 0 3*$base-unit;
+
+//$base-border-radius:      $base-unit !default;
+$border-radius-large: $base-unit * 2 !default;
+//$border-radius-small:     $base-unit / 2 !default;
+
+$thick-border-width: 3px;
+
+$box-shadow: 2px 3px 5px 0px $gray;
+
+//// Form states and alerts
+//// -------------------------
+
+$message-bg: $light-beige;
+$message-accent: $dark-beige;
+
+// Sprite options
+// ---------------------------
+$icons-sprite-dimensions: true;
+
+$large-icon-offset: 11*$base-unit;
+// This is not directly used by Compass in sprite functions, but is needed in several places to set the area of title icons
+
+
+

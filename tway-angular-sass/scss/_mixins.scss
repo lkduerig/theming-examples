@@ -1,0 +1,174 @@
+//
+// Custom SASS mixins
+//
+
+// Tieto Way
+@function -tiui-get-color($color) {
+  @if $color == 'magenta'     {
+    @return $tiui-magenta;
+  } @else if $color == 'orange' {
+    @return $tiui-orange;
+  } @else if $color == 'green'  {
+    @return $tiui-green;
+  } @else if $color == 'blue'   {
+    @return $tiui-blue;
+  } @else if $color == 'cyan'   {
+    @return $tiui-cyan;
+  }
+}
+
+@mixin set-tiui-colors($property, $element: '', $selector: '', $override: '') {
+  @each $color in $tiui-colors {
+    #{$element}.tiui-#{$color} #{$selector} {
+      @if $override == '' {
+        #{$property}: -tiui-get-color($color);
+      } @else {
+        #{$property}: $override;
+      }
+    }
+  }
+}
+
+// tiui colors according to business process
+@function -business-process-tiui-get-color($id) {
+  @if $id == 1 {
+    @return $tiui-green;
+  } @else if $id == 29 {
+    @return $tiui-magenta;
+  } @else if $id == 63 {
+    @return $tiui-orange;
+  } @else if $id == 177 {
+    @return $tiui-blue;
+  } @else if $id == 195 {
+    @return $tiui-cyan;
+  }
+}
+
+@mixin business-process-tiui-colors($property, $selector: '', $element: '') {
+  @each $id in $business-process-ids {
+    @if $selector != '' {
+      #{$element}.business-process-id-#{$id} {
+        #{$selector} {
+          #{$property}: -business-process-tiui-get-color($id);
+        }
+      }
+    } @else {
+      #{$element}.business-process-id-#{$id} {
+        #{$property}: -business-process-tiui-get-color($id);
+      }
+    }
+  }
+}
+
+@mixin adjust-tiui-colors($property, $selector: '', $amount: 20, $element: '', $adjustment: $white) {
+  @each $id in $business-process-ids {
+    @if $selector != '' {
+      #{$element}.business-process-id-#{$id} {
+        #{$selector} {
+          #{$property}: mix(-business-process-tiui-get-color($id), $adjustment, $amount);
+        }
+      }
+    } @else {
+      #{$element}.business-process-id-#{$id} {
+        #{$property}: mix(-business-process-tiui-get-color($id), $adjustment, $amount);
+      }
+    }
+  }
+}
+
+// Responsive breakpoints
+// see _variables for break-points
+@mixin respond-to($media) {
+  @if $media == handheld {
+    @media all and (max-width: $break1) {
+      @content;
+    }
+  } @else if $media == narrow {
+    @media all and (min-width: $break1 + 1) {
+      @content;
+    }
+  } @else if $media == narrow-only {
+    @media all and (min-width: $break1 + 1) and (max-width: $break2 - 1) {
+      @content;
+    }
+  } @else if $media == normal {
+    @media all and (min-width: $break2) {
+      @content;
+    }
+  } @else if $media == wide {
+    @media all and (min-width: $break3) {
+      @content;
+    }
+  }
+}
+
+// General-purpose handy mixins
+@mixin pseudo-element($position: before) {
+  position: relative;
+  &:#{$position} {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    @if $position == before {
+      left: 0;
+    } @else if $position == after {
+      right: 0;
+    }
+  }
+}
+
+@mixin link-hover($color: $tiui-blue, $hover-color: $tiui-blue-alt) {
+  color: $color;
+  cursor: pointer;
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+@mixin background-hover($color, $hover-color) {
+  background-color: $color;
+  cursor: pointer;
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+@mixin tooltip-arrow($direction, $color, $size: 10) {
+  //  position: relative;
+  // To use this mixin more intuitively, we need to operate un-intuitively.
+  @if $direction==left {
+    $direction: right;
+  } @else if $direction==right {
+    $direction: left;
+  }
+  @if $direction==top {
+    $direction: bottom;
+  } @else if $direction==bottom {
+    $direction: top;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: #{$size}px solid transparent;
+    border-top: #{$size}px solid transparent;
+    border-left: #{$size}px solid transparent;
+    border-right: #{$size}px solid transparent;
+    border-#{$direction}-color: $color;
+    #{$direction}: 100%;
+
+  }
+}
+
+@mixin disabled-button {
+  background-color: $gray-lighter;
+  a {
+    border-color: $gray-medium-light;
+    color: $gray-medium-light;
+    text-decoration: none;
+    cursor: default;
+  }
+}

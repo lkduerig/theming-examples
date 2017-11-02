@@ -1,0 +1,84 @@
+// Tooltips
+//------------------
+.tooltip-region {
+  position: relative;
+  .tooltip {
+    display: inline-block;
+    cursor: pointer;
+
+    .tooltip-trigger {
+      @include background-hover($tiui-blue, $tiui-blue-alt);
+      @include border-radius($border-radius-large);
+      text-align: center;
+      color: $white;
+      font-weight: bold;
+
+      position: relative;
+      @include adjust-font-size-to($font-size-small, $font-size-small/$base-font-size);
+      width: rhythm($font-size-small/$base-font-size, $font-size-small);
+      top: ($font-size-small - $base-font-size);
+    }
+
+    .tooltip-arrow-text {
+      display: none;
+    }
+
+    .tooltip-arrow {
+      @include tooltip-arrow(top, $tiui-blue-alt);
+      position: absolute;
+      z-index: 10;
+      @include leader(0.5);
+      margin-left: -2px;
+
+    }
+
+    .tooltip-text {
+      position: absolute;
+      padding: $padding-small;
+      @include leader(.5);
+      background-color: $tiui-blue-alt;
+      color: $gray-lighter;
+      @include box-sizing(border-box);
+      z-index: 100;
+      width: 90%;
+      right: 0;
+
+      p {
+        @include leader(0.25);
+        @include trailer(0.25);
+      }
+      &:hover {
+        display: block;
+      }
+    }
+
+    &:hover {
+      .tooltip-arrow-text {
+        display: block;
+      }
+    }
+  }
+}
+
+// Process chart tooltips
+.tooltip-group {
+  rect {
+    fill: $gray-dark;
+  }
+
+  tspan {
+    font-size: 12pt; // have to use pt, here, text doesn't work otherwise
+    stroke: none;
+    fill: $gray-lighter;
+  }
+
+  tspan.tooltip-label {
+    fill: $gray-light;
+  }
+
+  .tooltip-text-group:hover {
+    cursor: pointer;
+  }
+}
+
+

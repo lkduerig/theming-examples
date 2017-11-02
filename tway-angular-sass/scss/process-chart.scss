@@ -1,0 +1,99 @@
+@import "base";
+
+// Process chart variables
+// ------------------------
+//$stroke-width: 3;
+//$stroke-width: 0.1;
+//$hover-stroke-width: 4;
+
+// Colors
+//----------------
+@include business-process-tiui-colors("stroke");
+@include business-process-tiui-colors("fill", "marker, .box-title, .activity-group-title");
+@include adjust-tiui-colors("fill", "circle, rect");
+
+@include business-process-tiui-colors("fill", ".activity:hover, .gate:hover, .activity.selected, .gate.selected");
+@include adjust-tiui-colors("fill", ".sub-process:hover, .sub-process.selected", 40);
+@include adjust-tiui-colors("fill", ".activity-group-box", 30);
+
+//.process-chart
+//----------------
+
+.process-chart-wrapper {
+  text-align: center;
+}
+
+svg.process-chart {
+  @include business-process-tiui-colors("fill", "marker");
+  @include adjust-tiui-colors("fill", "circle, rect");
+  @include adjust-tiui-colors("fill", ".activity-group-box", 30);
+  @include business-process-tiui-colors("fill", ".activity:hover, .gate:hover, .activity.selected, .gate.selected");
+  @include adjust-tiui-colors("fill", ".dimmed", 30);
+  @include adjust-tiui-colors("stroke", ".dimmed", 40);
+
+  padding: 40px 20px;
+  margin: -30px -20px -40px;
+
+  // normalize.scss hides overflow for IE9 browsers, only because most browsers
+  //automatically crop svg elements and IE9 does not. In this case, we actually
+  //want to see the overflow.
+  overflow: visible;
+
+  @include business-process-tiui-colors("fill", "", "marker");
+
+  .activity-group-title {
+    padding: 2px;
+    font-weight: bold;
+  }
+
+  .box-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .activity-label {
+    fill: $gray-darker;
+    font-weight: bold;
+  }
+
+  .larger .activity-label {
+    font-size: 15px;
+  }
+
+  .activity, .gate, polyline {
+    stroke-width: 3;
+
+    &.highlighted {
+      filter: url(#highlight);
+    }
+  }
+
+  polyline.process-line {
+    stroke-width: 2;
+  }
+
+  .external-core-process {
+    stroke: none;
+  }
+
+  .sub-process, .activity, .gate {
+    cursor: pointer;
+  }
+
+  .other-type {
+    stroke: $tiui-blue;
+  }
+
+  .process-line, .reoccuring-process-line {
+    fill: none;
+  }
+
+  .process-line.satellite {
+    stroke-dasharray: 2, 2;
+  }
+
+  text {
+    stroke: none;
+  }
+}

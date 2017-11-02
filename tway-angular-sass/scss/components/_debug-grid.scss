@@ -1,0 +1,33 @@
+// These classes can be used to debug the process chart SVG
+
+.debug-grid-bg {
+  background-image: image-url("grid.png");
+}
+
+.debug-grid-overlay {
+  @include pseudo-element();
+  &:before {
+    background-image: image-url("grid.png");
+    display: block;
+  }
+}
+
+.core-process-view .debug-grid-overlay {
+  // We really wanted the debug grid on the chart in this case, but since it is
+  //necessary to put it on a wrapping dive, et's move the grid to align correctly.
+
+  &:before {
+    margin: -33px 21px;
+    padding-bottom: 40px;
+    background-size: 80px 80px;
+  }
+  .control-button {
+    position: relative;
+    z-index: 1000;
+  }
+}
+
+.core-process-view .debug-grid-bg {
+  background-size: 80px 80px;
+  background-position: 21px 7px;
+}

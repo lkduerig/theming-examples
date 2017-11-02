@@ -1,0 +1,30 @@
+@include set-tiui-colors(background-color, 'body', '.tiui-header');
+
+#site-header {
+  #ttm_main-nav {
+    button, input, select, textarea {
+      // Our normalize aligns these to baseline, which doesn't work in Tieto's topbar
+      vertical-align: bottom;
+    }
+  }
+
+  h1 {
+    @include adjust-font-size-to($h2-font-size);
+    a {
+      @include link-hover($white, $white);
+    }
+  }
+
+  h1, .roles-list {
+    display: inline-block;
+    margin-right: $indent-amount * 2;
+  }
+
+  .roles-list {
+    select {
+      vertical-align: text-bottom;
+      width: 240px;
+    }
+  }
+}
+

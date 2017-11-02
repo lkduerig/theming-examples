@@ -1,0 +1,26 @@
+.breadcrumb {
+  ul {
+    li {
+      padding: 0;
+      color: $gray;
+      a {
+        @include link-hover($gray);
+      }
+      &:last-child a {
+        @include link-hover;
+      }
+    }
+    span {
+      padding: 0 $base-unit;
+    }
+  }
+}
+
+.main-breadcrumb .breadcrumb {
+  @include trailer();
+  ul {
+    li {
+      @include adjust-font-size-to($h3-font-size);
+    }
+  }
+}
